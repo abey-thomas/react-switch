@@ -273,7 +273,7 @@ class ReactSwitch extends Component {
       transition: $isDragging ? null : "opacity 0.25s"
     };
 
-    const hovercheckedIconStyle = {
+    const hoverCheckedIconStyle = {
       height,
       width: Math.min(
         height * .5,
@@ -287,7 +287,7 @@ class ReactSwitch extends Component {
       transition: $isDragging ? null : "opacity 0.25s"
     };
 
-    const hoveruncheckedIconStyle = {
+    const hoverUncheckedIconStyle = {
       height,
       width: Math.min(
         height * .5,
@@ -368,9 +368,9 @@ class ReactSwitch extends Component {
           onTouchEnd={disabled ? null : this.$onTouchEnd}
           onTouchCancel={disabled ? null : this.$unsetHasOutline}
         >
-          {hoverCheckedIcon && <div style={hovercheckedIconStyle}>{hoverCheckedIcon}</div>}
+          {hoverCheckedIcon && <div style={hoverCheckedIconStyle}>{hoverCheckedIcon}</div>}
           {hoverUncheckedIcon && (
-            <div style={hoveruncheckedIconStyle}>{hoverUncheckedIcon}</div>
+            <div style={hoverUncheckedIconStyle}>{hoverUncheckedIcon}</div>
           )}
           </div>
         <input
@@ -419,8 +419,6 @@ ReactSwitch.defaultProps = {
   onHandleColor: "#fff",
   uncheckedIcon: defaultUncheckedIcon,
   checkedIcon: defaultCheckedIcon,
-  hoverUncheckedIcon: defaultUncheckedIcon,
-  hoverCheckedIcon: defaultCheckedIcon,
   boxShadow: null,
   activeBoxShadow: "0 0 2px 3px #3bf",
   height: 28,

@@ -83,14 +83,14 @@ export interface ReactSwitchProps {
    *
    * Defaults to an x icon.
    */
-  hoveruncheckedIcon?: JSX.Element | boolean;
+  hoverUncheckedIcon?: JSX.Element | boolean;
 
   /**
    * An icon that will be shown on the switch dragger when it is checked. Set to false to show no icon.
    *
    * Defaults to a checked icon.
    */
-  hovercheckedIcon?: JSX.Element | boolean;
+  hoverCheckedIcon?: JSX.Element | boolean;
 
   /**
    * The box-shadow of the handle of the switch.

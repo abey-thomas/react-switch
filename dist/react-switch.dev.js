@@ -418,7 +418,7 @@ function (Component) {
       MozTransition: $isDragging ? null : "opacity 0.25s",
       transition: $isDragging ? null : "opacity 0.25s"
     };
-    var hovercheckedIconStyle = {
+    var hoverCheckedIconStyle = {
       height: height,
       width: Math.min(height * .5, width * .5),
       opacity: ($pos - this.$uncheckedPos) / (this.$checkedPos - this.$uncheckedPos),
@@ -427,7 +427,7 @@ function (Component) {
       MozTransition: $isDragging ? null : "opacity 0.25s",
       transition: $isDragging ? null : "opacity 0.25s"
     };
-    var hoveruncheckedIconStyle = {
+    var hoverUncheckedIconStyle = {
       height: height,
       width: Math.min(height * .5, width * .5),
       opacity: 1 - ($pos - this.$uncheckedPos) / (this.$checkedPos - this.$uncheckedPos),
@@ -491,9 +491,9 @@ function (Component) {
       onTouchEnd: disabled ? null : this.$onTouchEnd,
       onTouchCancel: disabled ? null : this.$unsetHasOutline
     }, hoverCheckedIcon && React.createElement('div', {
-      style: hovercheckedIconStyle
+      style: hoverCheckedIconStyle
     }, hoverCheckedIcon), hoverUncheckedIcon && React.createElement('div', {
-      style: hoveruncheckedIconStyle
+      style: hoverUncheckedIconStyle
     }, hoverUncheckedIcon)), React.createElement('input', _extends({}, {
       type: "checkbox",
       role: "switch",
@@ -539,8 +539,6 @@ ReactSwitch.defaultProps = {
   onHandleColor: "#fff",
   uncheckedIcon: uncheckedIcon,
   checkedIcon: checkedIcon,
-  hoverUncheckedIcon: uncheckedIcon,
-  hoverCheckedIcon: checkedIcon,
   boxShadow: null,
   activeBoxShadow: "0 0 2px 3px #3bf",
   height: 28,
