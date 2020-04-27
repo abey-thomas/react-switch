@@ -191,6 +191,8 @@ class ReactSwitch extends Component {
       onHandleColor,
       checkedIcon,
       uncheckedIcon,
+      hoverCheckedIcon,
+      hoverUncheckedIcon,
       boxShadow,
       activeBoxShadow,
       height,
@@ -271,6 +273,37 @@ class ReactSwitch extends Component {
       transition: $isDragging ? null : "opacity 0.25s"
     };
 
+    const hovercheckedIconStyle = {
+      height,
+      width: Math.min(
+        height * .5,
+        width * .5
+      ),
+      opacity:
+        ($pos - this.$uncheckedPos) / (this.$checkedPos - this.$uncheckedPos),
+      pointerEvents: "none",
+      WebkitTransition: $isDragging ? null : "opacity 0.25s",
+      MozTransition: $isDragging ? null : "opacity 0.25s",
+      transition: $isDragging ? null : "opacity 0.25s"
+    };
+
+    const hoveruncheckedIconStyle = {
+      height,
+      width: Math.min(
+        height * .5,
+        width * .5
+      ),
+      opacity:
+        1 -
+        ($pos - this.$uncheckedPos) / (this.$checkedPos - this.$uncheckedPos),
+      right: 0,
+      top: 0,
+      pointerEvents: "none",
+      WebkitTransition: $isDragging ? null : "opacity 0.25s",
+      MozTransition: $isDragging ? null : "opacity 0.25s",
+      transition: $isDragging ? null : "opacity 0.25s"
+    };
+
     const handleStyle = {
       height: this.$handleDiameter,
       width: this.$handleDiameter,
@@ -334,7 +367,12 @@ class ReactSwitch extends Component {
           onTouchMove={disabled ? null : this.$onTouchMove}
           onTouchEnd={disabled ? null : this.$onTouchEnd}
           onTouchCancel={disabled ? null : this.$unsetHasOutline}
-        />
+        >
+          {hoverCheckedIcon && <div style={hovercheckedIconStyle}>{hoverCheckedIcon}</div>}
+          {hoverUncheckedIcon && (
+            <div style={hoveruncheckedIconStyle}>{hoverUncheckedIcon}</div>
+          )}
+          </div>
         <input
           type="checkbox"
           role="switch"
@@ -363,6 +401,8 @@ ReactSwitch.propTypes = {
   handleDiameter: PropTypes.number,
   uncheckedIcon: PropTypes.oneOfType([PropTypes.bool, PropTypes.element]),
   checkedIcon: PropTypes.oneOfType([PropTypes.bool, PropTypes.element]),
+  hoverUncheckedIcon: PropTypes.oneOfType([PropTypes.bool, PropTypes.element]),
+  hoverCheckedIcon: PropTypes.oneOfType([PropTypes.bool, PropTypes.element]),
   boxShadow: PropTypes.string,
   activeBoxShadow: PropTypes.string,
   height: PropTypes.number,
@@ -379,6 +419,8 @@ ReactSwitch.defaultProps = {
   onHandleColor: "#fff",
   uncheckedIcon: defaultUncheckedIcon,
   checkedIcon: defaultCheckedIcon,
+  hoverUncheckedIcon: defaultUncheckedIcon,
+  hoverCheckedIcon: defaultCheckedIcon,
   boxShadow: null,
   activeBoxShadow: "0 0 2px 3px #3bf",
   height: 28,
